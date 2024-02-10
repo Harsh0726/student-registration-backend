@@ -23,3 +23,5 @@ use App\Http\Controllers\StudentController;
 
 Route::post('/students', [StudentController::class, 'create']);
 Route::get('/students', [StudentController::class, 'read']);
+Route::put('/students/{id}', [StudentController::class, 'update']);
+Route::delete('/students/{id}', [StudentController::class, 'delete']);

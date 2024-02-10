@@ -34,11 +34,38 @@ class StudentController extends Controller
         return response()->json(['message' => 'Student created successfully', 'data' => $student], 201);
     }
 
-    // read a record
+    // read all records
     public function read(){
         $student = Student::all();
 
         return response() -> json(['data' => $student], 200);
     }
 
+    // update data
+    public function update(Request $request, $id){
+
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:students,email,' . $id, 
+            'phone_number' => 'required|string',
+            'gender' => 'required|in:male,female,other',
+            'date_of_birth' => 'required|date',
+            'address' => 'required|string',
+        ]);
+
+        $student = Student::findOrFail($id);
+
+        $student->update($validatedData);
+
+        return response() -> json(['message' => 'Student updated successfully', 'data' => $student], 200);
+    }
+
+    // delete record
+    public function delete(Request $request, $id){
+        $student = student::findOrFail($id);
+
+        $student->delete();
+
+        return response() -> json(['message' => 'Student deleted successfully'], 200);
+    }
 }
