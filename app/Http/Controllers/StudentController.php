@@ -34,4 +34,11 @@ class StudentController extends Controller
         return response()->json(['message' => 'Student created successfully', 'data' => $student], 201);
     }
 
+    // read a record
+    public function read(){
+        $student = Student::all();
+
+        return response() -> json(['data' => $student], 200);
+    }
+
 }
