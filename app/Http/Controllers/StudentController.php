@@ -38,7 +38,7 @@ class StudentController extends Controller
     public function read(){
         $student = Student::all();
 
-        return response() -> json(['data' => $student], 200);
+        return response() -> json($student, 200);
     }
 
     // update data
