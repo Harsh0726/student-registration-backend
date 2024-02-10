@@ -1,6 +1,6 @@
 <h3>Instructions on how to run the application:</h3>
 
-In your Laravel project, run the following command to start the development server:</br>
+In this <b>Student Registration backend</b> Laravel project, run the following command to start the development server:</br>
 php artisan serve --host=0.0.0.0 --port=8000
 
 ##
